@@ -1,18 +1,79 @@
 :root {
-	--ivory: #F7F6F2;
+	--ivory: #F1F0EA;
 	--forest-green: #344D40;
 	--deep-pine: #25382F;
 	--oak: #8A7560;
 	--sky-blue: #90AEBF;
 	--charcoal: #292E2B;
 }
-
 * { 
 	box-sizing: border-box; 
+	font-family: "Inter", sans-serif;
 }
-.body {
+body {
 	width: 100%;
+	margin: 0;
+	background-color: white;
+}
+p, h1, h2, h3, h4 {
+	margin: 0;
+	color: var(--forest-green);
+}
+p {
+	font-size: 1.2rem;
+}
+.nav {
+	width: 95%;
+	margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+	padding: 1rem 0.8rem;
+}
+.nav h1 {
+	font-size: 2.8rem;
+	color: var(--forest-green)
+}
+.linksList {
+	display: flex;
+	flex-direction: row;
+	gap: 2rem;
+}
+.linksList a {
+	font-size: 1.2rem;
+	font-weight: 450;
+	text-decoration: none;
+	color: var(--forest-green)
+}
+.pageBtn {
+	width: 10rem;
+	height: 2.2rem;
+	font-size: 1.1rem;
+	border-radius: 0.7rem;
+	border: none;
+	background-color: var(--forest-green);
+	color: white;
 }
 .mainPage {
-	width: auto;
+	width: 100%;
+}
+.child {
+	margin: 0 auto;
+	width: 95%;
+}
+.home .child1 {
+	padding: 1.8rem 2rem;
+	display: flex;
+	flex-direction: column;
+	gap: 1.2rem;
+	background-color: var(--ivory);
+	border-radius: 1rem;
+}
+.home .child1 p:first-child {
+	color: var(--oak);
+	font-weight: 450;
+}
+.home .child1 h3 {
+	font-size: 1.9rem;
+	font-weight: 400;
 }
