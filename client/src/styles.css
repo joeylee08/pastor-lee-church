@@ -31,7 +31,7 @@ p {
 	padding: 1rem 0.8rem;
 }
 .nav h1 {
-	font-size: 2.8rem;
+	font-size: 3rem;
 	color: var(--forest-green)
 }
 .linksList {
@@ -40,14 +40,14 @@ p {
 	gap: 2rem;
 }
 .linksList a {
-	font-size: 1.2rem;
+	font-size: 1.4rem;
 	font-weight: 450;
 	text-decoration: none;
 	color: var(--forest-green)
 }
 .pageBtn {
-	width: 10rem;
-	height: 2.2rem;
+	width: 10.2rem;
+	height: 2.5rem;
 	font-size: 1.1rem;
 	border-radius: 0.7rem;
 	border: none;
@@ -62,18 +62,32 @@ p {
 	width: 95%;
 }
 .home .child1 {
-	padding: 2rem;
+	padding: 2.2rem;
 	display: flex;
 	flex-direction: column;
 	gap: 1.2rem;
 	background-color: var(--ivory);
 	border-radius: 1rem;
+	margin-bottom: 1rem;
 }
 .home .child1 p:first-child {
 	color: var(--oak);
-	font-weight: 450;
+	font-weight: 550;
 }
 .home .child1 h3 {
-	font-size: 1.9rem;
+	font-size: 2rem;
 	font-weight: 400;
+	margin-left: -0.13rem;
+}
+.home .child1 p {
+	font-weight: 450;
+}
+.home .child2 {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 1rem;
+}
+.homeImg {
+	width: 100%;
+	border-radius: 1rem;
 }
