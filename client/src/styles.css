@@ -20,7 +20,7 @@ p, h1, h2, h3, h4 {
 	color: var(--forest-green);
 }
 p {
-	font-size: 1.2rem;
+	font-size: 1.4rem;
 }
 .nav {
 	width: 95%;
@@ -28,10 +28,10 @@ p {
   display: flex;
   justify-content: space-between;
   align-items: center;
-	padding: 1rem 0.8rem;
+	padding: 1.2rem 0.4rem;
 }
 .nav h1 {
-	font-size: 3rem;
+	font-size: 3.5rem;
 	color: var(--forest-green)
 }
 .linksList {
@@ -44,6 +44,10 @@ p {
 	font-weight: 450;
 	text-decoration: none;
 	color: var(--forest-green)
+}
+.footer {
+	height: 5rem;
+	background-color: var(--forest-green);
 }
 .pageBtn {
 	width: 10.2rem;
@@ -61,6 +65,14 @@ p {
 	margin: 0 auto;
 	width: 95%;
 }
+.sectionHeading {
+	width: 100%;
+	margin: 0 auto;
+	padding: 0;
+	font-size: 2rem;
+	font-weight: 450;
+	padding: 0 0.25rem;
+}
 .home .child1 {
 	padding: 2.2rem;
 	display: flex;
@@ -68,7 +80,7 @@ p {
 	gap: 1.2rem;
 	background-color: var(--ivory);
 	border-radius: 1rem;
-	margin-bottom: 1rem;
+	margin-bottom: 2.5rem;
 }
 .home .child1 p:first-child {
 	color: var(--oak);
@@ -76,8 +88,18 @@ p {
 }
 .home .child1 h3 {
 	font-size: 2rem;
-	font-weight: 400;
+	font-weight: 450;
 	margin-left: -0.13rem;
+}
+.titleAndLogo {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+.titleLogo {
+	color: var(--forest-green);
+	margin-left: 0.8rem;
+	margin-top: -0.75rem;
 }
 .home .child1 p {
 	font-weight: 450;
@@ -86,8 +108,32 @@ p {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	gap: 1rem;
+	margin-bottom: 2.5rem;
 }
 .homeImg {
 	width: 100%;
 	border-radius: 1rem;
+}
+.valuesBox {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	width: 70%;
+	margin: 0 auto 1.5rem auto;
+	padding: 2rem;
+}
+.valuesCard {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	border-radius: 1rem;
+	gap: 0.5rem;
+}
+.valuesCard h4 {
+	font-size: 1.4rem;
+	font-weight: 500;
+}
+.homeIcon {
+	color: var(--forest-green)
 }

@@ -4,6 +4,7 @@ import Media from "./pages/Media";
 import Messages from "./pages/Messages";
 import Contact from "./pages/Contact";
 import NavBar from "./components/Navbar"
+import Footer from "./components/Footer";
 
 const App = () => {
 	return (
@@ -15,6 +16,7 @@ const App = () => {
 			<Route path="/messages" element={<Messages />} />
 			<Route path="/contact" element={<Contact />} />
 			</Routes>
+			<Footer />
 		</>
 	);
 }
