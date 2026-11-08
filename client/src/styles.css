@@ -1,7 +1,18 @@
+:root {
+	--ivory: #F7F6F2;
+	--forest-green: #344D40;
+	--deep-pine: #25382F;
+	--oak: #8A7560;
+	--sky-blue: #90AEBF;
+	--charcoal: #292E2B;
+}
+
 * { 
 	box-sizing: border-box; 
 }
-
+.body {
+	width: 100%;
+}
 .mainPage {
 	width: auto;
 }
