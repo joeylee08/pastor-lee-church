@@ -3,8 +3,9 @@ import { Cloud, CloudSun } from "lucide-react"
 
 const NavBar = () => {
 	return (
-		<nav className='nav'>
-			<div className='titleAndLogo'>
+		<nav className='navWrapper'>
+			<div className='nav'>
+				<div className='titleAndLogo'>
 				<h1 className='title'>주님의 향기 교회</h1>
 				<CloudSun size={60} className='titleLogo' />
 			</div>
@@ -13,6 +14,7 @@ const NavBar = () => {
 				<NavLink to="/media">미디어</NavLink>
 				<NavLink to="/messages">말씀과 묵상</NavLink>
 				<NavLink to="/contact">교회 안내</NavLink>
+			</div>
 			</div>
 		</nav>
 	)
