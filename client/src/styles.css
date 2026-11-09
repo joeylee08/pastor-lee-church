@@ -63,13 +63,24 @@ p {
 	border: none;
 	color: var(--forest-green);
 	background-color: white;
-	box-shadow: inset 0 0 0 0.08rem var(--forest-green);
+	border: 0.08rem solid var(--forest-green);
 	margin-top: 0.8rem;
 }
 .pageBtn:hover {
 	cursor: pointer;
 	background-color: var(--forest-green);
 	color: white;
+}
+.pageBtn.logout {
+	width: 9.2rem;
+	height: 2.4rem;
+	font-size: 1.3rem;
+	margin: 0;
+	border-radius: 1rem;
+}
+.pageBtn.logout:hover {
+	background-color: white;
+	color: red;
 }
 .mainPage {
 	width: 95%;
@@ -229,4 +240,42 @@ p {
 	background-color: white;
 	color: var(--forest-green);
 	box-shadow: inset 0 0 0 0.08rem var(--forest-green);	
+}
+.admin .child1 {
+	margin-top: 3rem;
+}
+.createMessageForm {
+	display: flex;
+	border-radius: 1rem;
+	flex-direction: column;
+	width: 60%;
+	border: 0.08rem solid var(--forest-green);
+	padding: 2rem;
+	margin-top: 1rem;
+}
+.createMessageForm label {
+	font-size: 1.2rem;
+	padding-left: 0.3rem;
+	margin-bottom: 0.2rem;
+}
+.createMessageForm input {
+	height: 2rem;
+	font-size: 1.2rem;
+	border-radius: 0.5rem;
+	padding: 0.3rem;
+	border: 0.03rem solid var(--forest-green);
+	font-weight: 400;
+	margin-bottom: 1rem;
+}
+.createMessageForm textarea {
+	font-size: 1.2rem;
+	font-weight: 400;
+	padding: 0.3rem;
+	border-radius: 0.5rem;
+	margin-bottom: 1.5rem;
+	height: 22rem;
+}
+.formBtnBox {
+	display: flex;
+	gap: 1rem;
 }

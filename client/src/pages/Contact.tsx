@@ -14,6 +14,10 @@ const Contact = () => {
 		}))
 	}
 
+	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+		e.preventDefault()
+	}
+
 	return (
 		<div className='mainPage contact'>
 			<div className='child child1'>
@@ -34,7 +38,7 @@ const Contact = () => {
 			<div className='child child2'>
 				<h3 className='sectionHeading'>교회 소식 구독하기</h3>
 				<p>교회의 새로운 소식과 말씀을 이메일로 받아보세요.</p>
-				<form className='subscribeForm'>
+				<form className='subscribeForm' onSubmit={handleSubmit}>
 					<label htmlFor='name'>이름</label>
 					<input id='name' name='name' value={form.name} placeholder="이름" onChange={handleChange}></input>
 					<label htmlFor='email'>이매일</label>

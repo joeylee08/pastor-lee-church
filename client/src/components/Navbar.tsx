@@ -1,7 +1,10 @@
-import { NavLink } from "react-router-dom";
-import { Cloud, CloudSun } from "lucide-react"
+import { NavLink, useLocation } from "react-router-dom";
+import { CloudSun } from "lucide-react"
 
 const NavBar = () => {
+	const location = useLocation();
+  const isAdmin = location.pathname.startsWith("/admin");
+	
 	return (
 		<nav className='navWrapper'>
 			<div className='nav'>
@@ -10,10 +13,18 @@ const NavBar = () => {
 				<CloudSun size={60} className='titleLogo' />
 			</div>
 			<div className='linksList'>
-				<NavLink to="/">홈</NavLink>
-				<NavLink to="/media">미디어</NavLink>
-				<NavLink to="/messages">말씀과 묵상</NavLink>
-				<NavLink to="/contact">교회 안내</NavLink>
+				{isAdmin ? (
+					<>
+						<button type="button" className='pageBtn logout'>로그아웃</button>
+					</>
+				) : (
+					<>
+						<NavLink to="/">홈</NavLink>
+						<NavLink to="/media">미디어</NavLink>
+						<NavLink to="/messages">말씀과 묵상</NavLink>
+						<NavLink to="/contact">교회 안내</NavLink>
+					</>
+				)}
 			</div>
 			</div>
 		</nav>
