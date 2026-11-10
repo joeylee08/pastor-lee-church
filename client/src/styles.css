@@ -267,11 +267,9 @@ p {
 .messageTileBox::-webkit-scrollbar {
   width: 0.55rem;
 }
-
 .messageTileBox::-webkit-scrollbar-track {
   background: transparent;
 }
-
 .messageTileBox::-webkit-scrollbar-thumb {
 	background-color: #D5C7B7;
   border-radius: 1rem;
@@ -338,4 +336,41 @@ p {
 .formBtnBox {
 	display: flex;
 	gap: 1rem;
+}
+.photoForm {
+	margin-top: 1rem;
+	margin-bottom: 2.5rem;
+	padding: 1.5rem;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	gap: 1rem;
+	border-radius: 1rem;
+	border: 0.03rem solid var(--forest-green);
+}
+.photoForm label {
+	font-size: 1.4rem;
+}
+.photoForm input {
+	width: 20rem;
+	height: 2rem;
+	font-size: 1.2rem;
+	border-radius: 0.5rem;
+	padding: 0.3rem;
+	border: 0.03rem solid var(--forest-green);
+	font-weight: 400;
+}
+.photoForm .pageBtn {
+	font-size: 1.2rem;
+	margin: 0;
+	height: 2.2rem;
+	width: 8rem;
+	color: white;
+	border: 0.08rem solid var(--forest-green);
+	background-color: var(--forest-green)
+}
+.photoForm .pageBtn:hover {
+	color: var(--forest-green);
+	background-color: white;
 }

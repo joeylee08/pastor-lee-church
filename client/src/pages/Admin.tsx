@@ -70,6 +70,20 @@ const Admin = () => {
 					</div>
 				</div>	
 			</div>
+			<div className='child child2'>
+				<h3 className='sectionHeading'>교회 사진 갤러리</h3>
+				<form className='photoForm'>
+					<label htmlFor='photoUrl'>사진 선택</label>
+					<input id='photoUrl' name='photoUrl' type='text' className='photoUrl'></input>
+					<button type='submit' className='pageBtn'>사진 업로드</button>
+				</form>
+				<div className='photoGallery'>
+
+				</div>
+			</div>
+			<div className='child child3'>
+				<h3 className='sectionHeading'>교회 동영상</h3>
+			</div>
 		</div>
 	)
 }
