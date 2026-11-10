@@ -1,12 +1,16 @@
 import { useState } from 'react'
 import { Message } from '../types/Message'
 import { MessageForm } from '../types/MessageForm';
+import { Photo } from '../types/Photo'
 import dummyMessages from '../data/dummy';
 
 const Admin = () => {
 	const [messages, setMessages] = useState<Message[]>(dummyMessages);
-
 	const [selectedMessageId, setSelectedMessageId] = useState<number | null>(null);
+
+	const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
+	const [photos, setPhotos] = useState<Photo[]>([]);
+
 	const [messageForm, setMessageForm] = useState<MessageForm>({
 		title: '',
 		date: '',
@@ -19,6 +23,12 @@ const Admin = () => {
 			...prev,
 			[name]: value
 		}))
+	}
+
+	const handleChangePhotos = (e: React.ChangeEvent<HTMLInputElement>) => {
+		const files = e.target.files 
+		if (!files) return
+		setSelectedFiles(Array.from(files))
 	}
 
 	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -73,8 +83,12 @@ const Admin = () => {
 			<div className='child child2'>
 				<h3 className='sectionHeading'>교회 사진 갤러리</h3>
 				<form className='photoForm'>
-					<label htmlFor='photoUrl'>사진 선택</label>
-					<input id='photoUrl' name='photoUrl' type='text' className='photoUrl'></input>
+					<label htmlFor='photos'>
+						{selectedFiles.length
+							? `${selectedFiles.length} 개의 사진 선택됨`
+							: "사진을 선택하세요"}
+					</label>
+					<input id='photos' name='photos' type='file' accept='image/*' multiple className='photoFileInput' onChange={handleChangePhotos}></input>
 					<button type='submit' className='pageBtn'>사진 업로드</button>
 				</form>
 				<div className='photoGallery'>
