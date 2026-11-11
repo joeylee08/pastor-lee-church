@@ -16,7 +16,22 @@ const Admin = () => {
 		date: '',
 		message: ''
 	})
-
+	const handleSelectMessage = (message: Message) => {
+		setSelectedMessageId(message.id)
+		setMessageForm({
+			title: message.title,
+			date: message.date,
+			message: message.message
+		})
+	}
+	const handleClearMessageForm = () => {
+		setSelectedMessageId(null)
+		setMessageForm({
+			title: '',
+			date: '',
+			message: ''
+		})
+	}
 	const handleChangeMessage = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
 		const { name, value } = e.target
 		setMessageForm(prev => ({
@@ -46,20 +61,23 @@ const Admin = () => {
 		setSelectedFiles([])
 	}
 
-	const handleDelete = (type: "photo" | "message", id: number) => {
+	const handleDelete = (e: React.MouseEvent<HTMLButtonElement>, type: "photo" | "message", id: number) => {
+		e.stopPropagation()
 		// DELETE request here
+		const confirmed = window.confirm("정말 삭제하시겠습니까?");
+  	if (!confirmed) return;
 	}
 
 	const messageTiles = messages.map(messageData => (
-		<div key={messageData.id} className='messageTile'>
-			<button type='button' className='redX message' onClick={() => handleDelete('message', messageData.id)}>×</button>
+		<div key={messageData.id} className='messageTile' onClick={() => handleSelectMessage(messageData)}>
+			<button type='button' className='redX message' onClick={(e) => handleDelete(e, 'message', messageData.id)}>×</button>
 			<h3>{messageData.title}</h3>
 		</div>
 	))
 
 	const photoThumbs = photos.map(photo => (
 		<div key={photo.id} className='photoThumb'>
-			<button type='button' className='redX photo' onClick={() => handleDelete('photo', photo.id)}>×</button>
+			<button type='button' className='redX photo' onClick={(e) => handleDelete(e, 'photo', photo.id)}>×</button>
 			<img src={photo.url} alt={photo.caption || '교회 사진'}></img>
 			<p>{photo.caption}</p>
 		</div>
@@ -72,14 +90,14 @@ const Admin = () => {
 				<div className='formAndHistory'>
 					<form className='createMessageForm' onSubmit={handleSubmitMessage}>
 						<label htmlFor='title'>말씀 제목</label>
-						<input type='text' id='title' name='title' placeholder='말씀 제목' onChange={handleChangeMessage}></input>
+						<input type='text' id='title' name='title' placeholder='말씀 제목' onChange={handleChangeMessage} value={messageForm.title}></input>
 						<label htmlFor='title'>날짜</label>
-						<input type='date' id='date' name='date' onChange={handleChangeMessage}></input>
+						<input type='date' id='date' name='date' onChange={handleChangeMessage} value={messageForm.date}></input>
 						<label htmlFor='title'>목화자의 말씀</label>
-						<textarea id='message' name='message' onChange={handleChangeMessage}></textarea>
+						<textarea id='message' name='message' onChange={handleChangeMessage} value={messageForm.message}></textarea>
 						<div className='formBtnBox'>
 							<button type='submit' className='pageBtn'>저장하기</button>
-							<button type='button' className='pageBtn'>취소하기</button>
+							<button type='button' className='pageBtn' onClick={handleClearMessageForm}>취소하기</button>
 						</div>
 					</form>
 					<div className='messageTileBox'>

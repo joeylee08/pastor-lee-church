@@ -1,7 +1,51 @@
+import { dummyPhotos } from '../data/dummy';
+import { Photo } from '../types/Photo';
+import { Video } from '../types/Video'
+import { useState } from 'react'
+import { dummyVideos } from '../data/dummy';
+
 const Media = () => {
+	const [photos, setPhotos] = useState<Photo[]>(dummyPhotos);
+	const [videos, setVideos] = useState<Video[]>(dummyVideos)
+	const [selectedVideoId, setSelectedVideoId] = useState<string>("");
+
+	const photoImgs = photos.map(photo => (
+		<div key={photo.id} className='photoImg'>
+			<img src={photo.url} alt={photo.caption || '교회 사진'}></img>
+			<p>{photo.caption}</p>
+		</div>
+	))
+
+	const videoThumbs = videos.map(video => (
+		<div key={video.id} className='videoThumb'>
+			<img src={video.thumbnailUrl} alt="" />
+			<p>{video.title}</p>
+		</div>
+	))
+
 	return (
 		<div className='mainPage media'>
-			<h1>Media</h1>
+			<div className='child child1'>
+				<h3 className='sectionHeading'>교회 사진 갤러리</h3>
+				<div className='photoGallery'>
+					{photoImgs}
+				</div>
+			</div>
+			<div className='child child2'>
+				<div className='videoPlayer'>
+						<iframe
+							src={`https://www.youtube.com/embed/${selectedVideoId}`}
+							title="교회 설교 영상"
+							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+							allowFullScreen
+						/>
+				</div>
+				<div className='videoGrid'>
+					<div className='videoScroll'>
+						{videoThumbs}
+					</div>
+				</div>
+			</div>
 		</div>
 	);
 }

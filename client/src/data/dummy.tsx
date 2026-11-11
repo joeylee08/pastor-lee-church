@@ -1,4 +1,5 @@
 import { Photo } from "../types/Photo";
+import { Video } from "../types/Video"
 
 const dummyMessages = [
   {
@@ -134,4 +135,15 @@ const dummyPhotos: Photo[] = [
   },
 ];
 
-export { dummyMessages, dummyPhotos }
+const dummyVideos: Video[] = [
+  { id: "T1rRhgOgctI", title: "Video 1" },
+  { id: "T1rRhgOgctI", title: "Video 2" },
+  { id: "T1rRhgOgctI", title: "Video 3" },
+	{ id: "T1rRhgOgctI", title: "Video 4" },
+  { id: "T1rRhgOgctI", title: "Video 5" },
+].map(video => ({
+  ...video,
+  thumbnailUrl: `https://img.youtube.com/vi/${video.id}/hqdefault.jpg`,
+}));
+
+export { dummyMessages, dummyPhotos, dummyVideos }
