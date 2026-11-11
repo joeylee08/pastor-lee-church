@@ -1,5 +1,6 @@
 import express from "express";
 import { prisma } from "../lib/prisma.js";
+import  requireAdmin from "../middleware/requireAdmin.js";
 
 const router = express.Router();
 
@@ -14,7 +15,7 @@ router.get("/", async (req, res) => {
 });
 
 // POST a message
-router.post("/", async (req, res) => {
+router.post("/", requireAdmin, async (req, res) => {
   try {
 		const { title, date, message } = req.body
 		
@@ -31,7 +32,7 @@ router.post("/", async (req, res) => {
 });
 
 // PATCH a message
-router.patch("/:id", async (req, res) => {
+router.patch("/:id", requireAdmin, async (req, res) => {
   try {
 		const id = +req.params.id
 		const { title, date, message } = req.body
@@ -58,7 +59,7 @@ router.patch("/:id", async (req, res) => {
 });
 
 // DELETE a message
-router.delete("/:id", async (req, res) => {
+router.delete("/:id", requireAdmin, async (req, res) => {
   try {
 		const id = +req.params.id
 		if (!Number.isInteger(id) || id <= 0) {

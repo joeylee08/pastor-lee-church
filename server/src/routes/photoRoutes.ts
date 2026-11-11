@@ -1,5 +1,6 @@
 import express from "express";
 import { prisma } from "../lib/prisma.js";
+import requireAdmin from "../middleware/requireAdmin.js";
 
 const router = express.Router();
 
@@ -14,12 +15,12 @@ router.get("/", async (req, res) => {
 });
 
 // POST a photo
-router.post("/", async (req, res) => {
+router.post("/", requireAdmin, async (req, res) => {
 	// Prisma query here
 });
 
 // DELETE a photo
-router.delete("/:id", async (req, res) => {
+router.delete("/:id", requireAdmin, async (req, res) => {
 	// Prisma query here
 });
 
