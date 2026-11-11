@@ -1,3 +1,4 @@
+import { Photo } from "../types/Photo";
 
 const dummyMessages = [
   {
@@ -95,4 +96,42 @@ Every day presents another opportunity to begin again, and every small step can 
   }
 ];
 
-export default dummyMessages
+const dummyPhotos: Photo[] = [
+  {
+    id: 1,
+    url: "/church1.png",
+    storageKey: "church1.png",
+    caption: "교회 전경",
+    createdAt: "2026-11-01",
+  },
+  {
+    id: 2,
+    url: "/church1.png",
+    storageKey: "church1.png",
+    caption: "주일 예배",
+    createdAt: "2026-11-02",
+  },
+  {
+    id: 3,
+    url: "/church1.png",
+    storageKey: "church1.png",
+    caption: "교회 친교",
+    createdAt: "2026-11-03",
+  },
+  {
+    id: 4,
+    url: "/church1.png",
+    storageKey: "church1.png",
+    caption: "성도들의 모임",
+    createdAt: "2026-11-04",
+  },
+  {
+    id: 5,
+    url: "/church1.png",
+    storageKey: "church1.png",
+    caption: "교회 행사",
+    createdAt: "2026-11-05",
+  },
+];
+
+export { dummyMessages, dummyPhotos }

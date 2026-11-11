@@ -105,7 +105,7 @@ p {
 	gap: 1.2rem;
 	background-color: var(--ivory);
 	border-radius: 1rem;
-	margin-top: 2.5rem;
+	margin-top: 3rem;
 	margin-bottom: 2.5rem;
 }
 .home .child1 p:first-child {
@@ -172,7 +172,7 @@ p {
 	padding: 2.2rem;
 	gap: 1rem;
 	background-color: var(--ivory);
-	margin-top: 2.5rem;
+	margin-top: 3rem;
 	margin-bottom: 2.5rem;
 }
 .contact .child1a p {
@@ -281,7 +281,7 @@ p {
 	flex-direction: row;
 	align-items: center;
 	justify-content: space-between;
-	padding: 0.5rem;
+	padding: 0.8rem;
 	gap: 1rem;
 	background-color: var(--ivory);
 }
@@ -292,8 +292,8 @@ p {
 }
 .messageTile h3:last-child {
 	color: green;
-	font-size: 1rem;
-	font-weight: 400;
+	font-size: 1.1rem;
+	font-weight: 350;
 }
 .messageTile:hover {
 	box-shadow: inset 0 0 0 0.08rem green;
@@ -337,9 +337,12 @@ p {
 	display: flex;
 	gap: 1rem;
 }
+.admin .child2 {
+	margin-bottom: 3rem;
+}
 .photoForm {
 	margin-top: 1rem;
-	margin-bottom: 2.5rem;
+	margin-bottom: 2rem;
 	padding: 1.7rem;
 	display: flex;
 	flex-direction: row;
@@ -386,4 +389,46 @@ p {
 .photoForm .pageBtn:hover {
 	color: var(--forest-green);
 	background-color: white;
+}
+.admin .photoGallery {
+	width: 100%;
+	display: grid;
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	gap: 1rem;
+}
+.photoThumb {
+	border: 0.03rem solid var(--forest-green);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	border-radius: 0.7rem;
+	position: relative;
+}
+.photoThumb .redX {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	padding-bottom: 0.3rem;
+	width: 1.5rem;
+	height: 1.5rem;
+	border-radius: 50%;
+	position: absolute;
+	right: -0.5rem;
+	top: -0.5rem;
+	background-color: white;
+	border: 0.08rem solid green;
+	color: red;
+	font-size: 1.5rem;
+}
+.photoThumb .redX:hover {
+	cursor: pointer;
+}
+.photoThumb img {
+	width: 100%;
+	border-radius: 0.7rem 0.7rem 0 0;
+	height: auto;
+}
+.photoThumb p {
+	line-height: 2.5rem;
 }
