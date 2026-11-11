@@ -7,6 +7,7 @@ import Contact from "./pages/Contact";
 import Admin from "./pages/Admin"
 import NavBar from "./components/Navbar"
 import Footer from "./components/Footer";
+import Login from "./pages/Login";
 
 const App = () => {
 	return (
@@ -19,6 +20,7 @@ const App = () => {
 				<Route path="sermons" element={<Sermons />} />
 				<Route path="/contact" element={<Contact />} />
 				<Route path='/admin'element={<Admin />} />
+				<Route path="/login" element={<Login />} />
 			</Routes>
 			<Footer />
 		</>

@@ -205,14 +205,16 @@ const Admin = () => {
 		<div key={photo.id} className='photoThumb'>
 			<button type='button' className='redX photo' onClick={(e) => handleDelete(e, 'photo', photo.id)}>×</button>
 			<img src={photo.url} alt={photo.caption || '교회 사진'}></img>
-			<p>{photo.caption}</p>
 		</div>
 	))
 
 	const sermonThumbs = sermons.map(sermon => (
 		<div key={sermon.id} className='sermonThumb'>
 			<button type='button' className='redX sermon' onClick={(e) => handleDelete(e, 'sermon', sermon.id)}>×</button>
-			<a href={sermon.url} target="_blank" rel="noopener noreferrer">{sermon.title}</a>
+			<a href={sermon.url} target="_blank" rel="noopener noreferrer">
+				<div className="pptIcon">PPT</div>
+				<p>{sermon.title}</p>
+			</a>
 		</div>
 	))
 

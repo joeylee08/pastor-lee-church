@@ -24,6 +24,7 @@ router.get("/", async (req, res) => {
 		res.status(200).json(photos)
 	} catch (error) {
 		console.error('Error fetching photos.', error)
+		res.status(500).json({ error: "Failed to fetch photos" });
 	}
 });
 
@@ -46,38 +47,42 @@ router.post("/", requireAdmin, upload.array("files", 5), async (req, res) => {
   const uploadedKeys: string[] = [];
 
   try {
-    for (const file of files) {
-      const detected = await fileTypeFromBuffer(file.buffer);
-      const extension = detected ? mimeToExtension[detected.mime] : undefined;
+		// STEP 1: Validate all files first.
+		const validFiles: { file: Express.Multer.File; extension: string; mime: string; }[] = [];
 
-      if (!extension) {
-        res.status(400).json({ error: `Unsupported file format: ${file.originalname}` });
-        return;
-      }
+		for (const file of files) {
+			const detected = await fileTypeFromBuffer(file.buffer);
+			const extension = detected ? mimeToExtension[detected.mime] : undefined;
 
-      const key = `photos/${randomUUID()}.${extension}`;
+			if (!extension || !detected) {
+				res.status(400).json({ error: `Unsupported file format: ${file.originalname}` });
+				return;
+			}
+			validFiles.push({ file, extension, mime: detected.mime });
+		}
 
-      await storage.send(
-        new PutObjectCommand({
-          Bucket: bucket,
-          Key: key,
-          Body: file.buffer,
-          ContentType: detected!.mime,
-        })
-      );
+		// STEP 2: Upload validated files to Neon Object Storage.
+		for (const { file, extension, mime } of validFiles) {
+			const key = `photos/${randomUUID()}.${extension}`;
+			await storage.send(
+				new PutObjectCommand({
+					Bucket: bucket,
+					Key: key,
+					Body: file.buffer,
+					ContentType: mime,
+				})
+			);
+			uploadedKeys.push(key);
+			uploadedPhotoData.push({
+				url: getPublicUrl(key),
+				storageKey: key,
+			});
+		}
+		// STEP 3: Save all photo records in PostgreSQL.
+		const createdPhotos = await prisma.photo.createManyAndReturn({ data: uploadedPhotoData });
+		res.status(201).json(createdPhotos);
 
-      uploadedKeys.push(key);
-
-      uploadedPhotoData.push({
-        url: getPublicUrl(key),
-        storageKey: key,
-      });
-    }
-
-    const createdPhotos = await prisma.photo.createManyAndReturn({ data: uploadedPhotoData });
-
-    res.status(201).json(createdPhotos);
-  } catch (error) {
+	} catch (error) {
     console.error("Error uploading photos:", error);
 
     // cleanup if storage uploads succeeded but DB operation failed
