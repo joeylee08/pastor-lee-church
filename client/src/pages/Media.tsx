@@ -9,6 +9,9 @@ const Media = () => {
 	const [videos, setVideos] = useState<Video[]>(dummyVideos)
 	const [selectedVideoId, setSelectedVideoId] = useState<string>("");
 
+	//fetch photos
+	//fetch videos
+
 	const photoImgs = photos.map(photo => (
 		<div key={photo.id} className='photoImg'>
 			<img src={photo.url} alt={photo.caption || '교회 사진'}></img>
@@ -17,7 +20,7 @@ const Media = () => {
 	))
 
 	const videoThumbs = videos.map(video => (
-		<div key={video.id} className='videoThumb'>
+		<div key={video.id} className='videoThumb' onClick={() => setSelectedVideoId(video.id)}>
 			<img src={video.thumbnailUrl} alt="" />
 			<p>{video.title}</p>
 		</div>
@@ -30,6 +33,9 @@ const Media = () => {
 				<div className='photoGallery'>
 					{photoImgs}
 				</div>
+			</div>
+			<div className='child child1a'>
+				<h3 className='sectionHeading'>교회 동영상 플레이리스트</h3>
 			</div>
 			<div className='child child2'>
 				<div className='videoPlayer'>

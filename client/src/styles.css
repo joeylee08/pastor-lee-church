@@ -65,6 +65,9 @@ p {
 	background-color: white;
 	border: 0.08rem solid var(--forest-green);
 	margin-top: 0.8rem;
+	display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 .pageBtn:hover {
 	cursor: pointer;
@@ -117,6 +120,9 @@ p {
 	font-weight: 450;
 	margin-left: -0.13rem;
 }
+.home a {
+	text-decoration: none;
+}
 .titleAndLogo {
 	display: flex;
 	flex-direction: row;
@@ -166,7 +172,7 @@ p {
 }
 .media .child1 {
 	margin-top: 3rem;
-	margin-bottom: 2.5rem;
+	margin-bottom: 3rem;
 }
 .media .photoGallery {
 	margin-top: 1rem;
@@ -189,13 +195,22 @@ p {
 	height: auto;
 }
 .photoImg p {
-	line-height: 2.5rem;
+	font-size: 1.2rem;
+	margin: 0.5rem;
+	white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+	width: 90%;
+  text-align: center;
+}
+.media .child1a {
+	margin-bottom: 1rem;
 }
 .media .child2 {
-	margin-bottom: 2.5rem;
+	margin-bottom: 4rem;
 	display: grid;
 	gap: 1rem;
-	grid-template-columns: minmax(0, 5fr) minmax(0, 2fr);
+	grid-template-columns: minmax(0, 4fr) minmax(0, 1fr);
 }
 .videoPlayer {
 	width: 100%;
@@ -219,7 +234,17 @@ p {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-	padding-right: 0.5rem;
+	padding-right: 0.6rem;
+}
+.videoScroll::-webkit-scrollbar {
+  width: 0.55rem;
+}
+.videoScroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.videoScroll::-webkit-scrollbar-thumb {
+	background-color: #cbcbcb;
+  border-radius: 1rem;
 }
 .videoThumb {
 	border: 0.03rem solid var(--forest-green);
@@ -229,15 +254,25 @@ p {
 	border-radius: 0.7rem;
 	position: relative;
 }
+.videoThumb:hover {
+	cursor: pointer;
+}
 .videoThumb img {
 	display: block;
+	aspect-ratio: 16 / 9;
 	object-fit: cover;
 	width: 100%;
 	border-radius: 0.7rem 0.7rem 0 0;
 	height: auto;
 }
 .videoThumb p {
-	line-height: 2.5rem;
+	font-size: 1rem;
+	margin: 0.4rem;
+	white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+	width: 90%;
+  text-align: center;
 }
 .contact .child1 {
 	width: 95%;
@@ -508,5 +543,11 @@ p {
 	height: auto;
 }
 .photoThumb p {
-	line-height: 2.5rem;
+	font-size: 1rem;
+	margin: 0.5rem;
+	white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+	width: 90%;
+  text-align: center;
 }

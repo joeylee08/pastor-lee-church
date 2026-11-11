@@ -2,34 +2,33 @@ import { useState } from 'react'
 import { Message } from '../types/Message'
 import { MessageForm } from '../types/MessageForm';
 import { Photo } from '../types/Photo'
+import { Sermon } from '../types/Sermon'
 import { dummyPhotos, dummyMessages } from '../data/dummy';
 
 const Admin = () => {
-	const [messages, setMessages] = useState<Message[]>(dummyMessages);
-	const [selectedMessageId, setSelectedMessageId] = useState<number | null>(null);
+	type FileType = "photo" | "ppt";
 
-	const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
+	const [messages, setMessages] = useState<Message[]>(dummyMessages);
 	const [photos, setPhotos] = useState<Photo[]>(dummyPhotos);
+	const [sermons, setSermons] = useState<Sermon[]>([]);
+
+	const [selectedMessageId, setSelectedMessageId] = useState<number | null>(null);
+	const [selectedPhotos, setSelectedPhotos] = useState<File[]>([]);
+	const [selectedSermon, setSelectedSermon] = useState<File | null>(null);
+	
 
 	const [messageForm, setMessageForm] = useState<MessageForm>({
 		title: '',
 		date: '',
 		message: ''
 	})
+
 	const handleSelectMessage = (message: Message) => {
 		setSelectedMessageId(message.id)
 		setMessageForm({
 			title: message.title,
 			date: message.date,
 			message: message.message
-		})
-	}
-	const handleClearMessageForm = () => {
-		setSelectedMessageId(null)
-		setMessageForm({
-			title: '',
-			date: '',
-			message: ''
 		})
 	}
 	const handleChangeMessage = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -39,12 +38,6 @@ const Admin = () => {
 			[name]: value
 		}))
 	}
-	const handleChangePhotos = (e: React.ChangeEvent<HTMLInputElement>) => {
-		const files = e.target.files 
-		if (!files) return
-		setSelectedFiles(Array.from(files))
-	}
-
 	const handleSubmitMessage = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault()
 		//check if editing or submitting new message
@@ -55,13 +48,32 @@ const Admin = () => {
 			message: ""
 		});
 	}
-	const handleSubmitPhotos = (e: React.FormEvent<HTMLFormElement>) => {
-		e.preventDefault()
-		//submit array of photos
-		setSelectedFiles([])
+	const handleClearMessageForm = () => {
+		setSelectedMessageId(null)
+		setMessageForm({
+			title: '',
+			date: '',
+			message: ''
+		})
 	}
 
-	const handleDelete = (e: React.MouseEvent<HTMLButtonElement>, type: "photo" | "message", id: number) => {
+	const handleChangeFiles = (e: React.ChangeEvent<HTMLInputElement>, type: FileType) => {
+		const files = Array.from(e.target.files ?? []);
+		if (type === "photo") {
+			setSelectedPhotos(files);
+		} else {
+			setSelectedSermon(files[0] ?? null);
+		}
+	}
+
+	
+	const handleSubmitFiles = (e: React.FormEvent<HTMLFormElement>, fileType: string) => {
+		e.preventDefault()
+		//submit array of photos
+		if (fileType === 'photo') alert('penis')
+	}
+
+	const handleDelete = (e: React.MouseEvent<HTMLButtonElement>, type: "photo" | "message" | "ppt", id: number) => {
 		e.stopPropagation()
 		// DELETE request here
 		const confirmed = window.confirm("정말 삭제하시겠습니까?");
@@ -110,13 +122,13 @@ const Admin = () => {
 			</div>
 			<div className='child child2'>
 				<h3 className='sectionHeading'>교회 사진 갤러리</h3>
-				<form className='photoForm' onSubmit={handleSubmitPhotos}>
+				<form className='photoForm' onSubmit={(e) => handleSubmitFiles(e, 'photo')}>
 					<label htmlFor='photos'>
-						{selectedFiles.length
-							? `${selectedFiles.length} 개의 사진 선택됨`
+						{selectedPhotos.length
+							? `${selectedPhotos.length} 개의 사진 선택됨`
 							: "사진을 선택하세요"}
 					</label>
-					<input id='photos' name='photos' type='file' accept='image/*' multiple className='photoFileInput' onChange={handleChangePhotos}></input>
+					<input id='photos' name='photos' type='file' accept='image/*' multiple className='photoFileInput' onChange={(e) => handleChangeFiles(e, "photo")}></input>
 					<button type='submit' className='pageBtn'>사진 업로드</button>
 				</form>
 				<div className='photoGallery'>
@@ -126,7 +138,19 @@ const Admin = () => {
 				</div>
 			</div>
 			<div className='child child3'>
-				<h3 className='sectionHeading'>교회 동영상</h3>
+				<h3 className='sectionHeading'>설교 파워 포인트</h3>
+				<form className='photoForm' onSubmit={(e) => handleSubmitFiles(e, 'ppt')}>
+					<label htmlFor='ppt'>
+						{selectedSermon
+							? selectedSermon.name
+							: "파워포인트를 선택하세요"}
+					</label>
+					<input id='ppt' name='ppt' type='file' accept='.ppt, .pptx' multiple className='photoFileInput' onChange={(e) => handleChangeFiles(e, "ppt")} required></input>
+					<button type='submit' className='pageBtn'>설교 업로드</button>
+				</form>
+				<div className='photoGallery'>
+					{photoThumbs}
+				</div>
 			</div>
 		</div>
 	)

@@ -102,7 +102,7 @@ const dummyPhotos: Photo[] = [
     id: 1,
     url: "/church1.png",
     storageKey: "church1.png",
-    caption: "교회 전경",
+    caption: "교회 전경 and the very large penis is big hello hello hello",
     createdAt: "2026-11-01",
   },
   {
@@ -137,10 +137,10 @@ const dummyPhotos: Photo[] = [
 
 const dummyVideos: Video[] = [
   { id: "T1rRhgOgctI", title: "Video 1" },
-  { id: "T1rRhgOgctI", title: "Video 2" },
-  { id: "T1rRhgOgctI", title: "Video 3" },
-	{ id: "T1rRhgOgctI", title: "Video 4" },
-  { id: "T1rRhgOgctI", title: "Video 5" },
+  { id: "1", title: "Video 2 and the very large penis is huge" },
+  { id: "2", title: "Video 3" },
+	{ id: "3", title: "Video 4" },
+  { id: "4", title: "Video 5" },
 ].map(video => ({
   ...video,
   thumbnailUrl: `https://img.youtube.com/vi/${video.id}/hqdefault.jpg`,
