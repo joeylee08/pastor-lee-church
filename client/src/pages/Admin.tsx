@@ -46,21 +46,20 @@ const Admin = () => {
 		setSelectedFiles([])
 	}
 
-	const handleDelete = (e: React.MouseEvent<HTMLButtonElement>) => {
-		e.preventDefault();
+	const handleDelete = (type: "photo" | "message", id: number) => {
 		// DELETE request here
 	}
 
 	const messageTiles = messages.map(messageData => (
 		<div key={messageData.id} className='messageTile'>
+			<button type='button' className='redX message' onClick={() => handleDelete('message', messageData.id)}>×</button>
 			<h3>{messageData.title}</h3>
-			<h3>{messageData.date}</h3>
 		</div>
 	))
 
 	const photoThumbs = photos.map(photo => (
 		<div key={photo.id} className='photoThumb'>
-			<button type='button' className='redX photo'>×</button>
+			<button type='button' className='redX photo' onClick={() => handleDelete('photo', photo.id)}>×</button>
 			<img src={photo.url} alt={photo.caption || '교회 사진'}></img>
 			<p>{photo.caption}</p>
 		</div>

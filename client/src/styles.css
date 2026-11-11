@@ -259,10 +259,10 @@ p {
 	display: flex;
 	flex-direction: column;
 	margin-top: 1.1rem;
-	padding: 0 0.6rem 0 1rem;
+	padding: 0rem 0.6rem 0 1rem;
 	gap: 0.8rem;
 	overflow-y: scroll;
-	height: 35rem;
+	height: 34.8rem;
 }
 .messageTileBox::-webkit-scrollbar {
   width: 0.55rem;
@@ -275,12 +275,13 @@ p {
   border-radius: 1rem;
 }
 .messageTile {
+	position: relative;
 	border: 0.03rem solid var(--forest-green);
 	border-radius: 0.5rem;
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	justify-content: space-between;
+	justify-content: flex-start;
 	padding: 0.8rem;
 	gap: 1rem;
 	background-color: var(--ivory);
@@ -289,11 +290,6 @@ p {
 	font-size: 1.2rem;
 	font-weight: 400;
 	color: var(--oak)
-}
-.messageTile h3:last-child {
-	color: green;
-	font-size: 1.1rem;
-	font-weight: 350;
 }
 .messageTile:hover {
 	box-shadow: inset 0 0 0 0.08rem green;
@@ -404,7 +400,7 @@ p {
 	border-radius: 0.7rem;
 	position: relative;
 }
-.photoThumb .redX {
+.redX {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
@@ -420,8 +416,14 @@ p {
 	border: 0.08rem solid green;
 	color: red;
 	font-size: 1.5rem;
+	font-weight: 300;
+	z-index: 10;
 }
-.photoThumb .redX:hover {
+.redX.message {
+	top: 25%;
+	right: 3.5%;
+}
+.redX:hover {
 	cursor: pointer;
 }
 .photoThumb img {
