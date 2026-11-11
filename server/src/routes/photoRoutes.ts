@@ -1,10 +1,16 @@
 import express from "express";
+import { prisma } from "../lib/prisma.js";
 
 const router = express.Router();
 
 // GET all photos
 router.get("/", async (req, res) => {
-	// Prisma query here
+	try {
+		const photos = await prisma.photo.findMany({ orderBy: { createdAt: "desc" }})
+		res.status(200).json(photos)
+	} catch (error) {
+		console.error('Error fetching photos.', error)
+	}
 });
 
 // POST a photo
