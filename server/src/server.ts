@@ -35,7 +35,7 @@ app.use(session({
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",
     sameSite: "lax",
-    maxAge: 8 * 60 * 60 * 1000,
+    maxAge: 30 * 24 * 60 * 60 * 1000,
   },
 }));
 
@@ -51,4 +51,26 @@ app.use("/api", authRoutes);
 app.use("/api/videos", videoRoutes);
 
 const port = Number(process.env.PORT ?? 3001);
+
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+
+const clientDist = fileURLToPath(
+  new URL("../../client/dist/", import.meta.url)
+);
+
+app.use(express.static(clientDist));
+
+app.use((req, res, next) => {
+  if (
+    req.method === "GET" &&
+    !req.path.startsWith("/api/") &&
+    req.accepts("html")
+  ) {
+    res.sendFile(path.join(clientDist, "index.html"));
+    return;
+  }
+  next();
+});
+
 app.listen(port, () => console.log(`API listening on http://localhost:${port}`));
