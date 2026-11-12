@@ -339,7 +339,7 @@ p {
 	font-weight: 450;
 }
 .messageBody p:first-of-type {
-	font-weight: 400;
+	font-weight: 350;
 	color: green;
 }
 .messageBody p {
