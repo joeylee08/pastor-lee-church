@@ -2,6 +2,7 @@ import express from "express";
 import { prisma } from "../lib/prisma.js";
 import requireAdmin from "../middleware/requireAdmin.js";
 import multer from "multer";
+import sharp from "sharp";
 import { PutObjectCommand, DeleteObjectCommand } from "@aws-sdk/client-s3";
 import { randomUUID } from "node:crypto";
 import { fileTypeFromBuffer } from "file-type";
@@ -62,20 +63,30 @@ router.post("/", requireAdmin, upload.array("files", 5), async (req, res) => {
 		}
 
 		// STEP 2: Upload validated files to Neon Object Storage.
-		for (const { file, extension, mime } of validFiles) {
-			const key = `photos/${randomUUID()}.${extension}`;
+		for (const { file } of validFiles) {
+			const storageKey = `photos/${randomUUID()}.webp`;
+			const optimizedBuffer = await sharp(file.buffer)
+																				.rotate()
+																				.resize({
+																					width: 1600,
+																					height: 1600,
+																					fit: "inside",
+																					withoutEnlargement: true,
+																				})
+																				.webp({ quality: 80 })
+																				.toBuffer();
 			await storage.send(
 				new PutObjectCommand({
 					Bucket: bucket,
-					Key: key,
-					Body: file.buffer,
-					ContentType: mime,
+					Key: storageKey,
+					Body: optimizedBuffer,
+					ContentType: "image/webp",
 				})
 			);
-			uploadedKeys.push(key);
+			uploadedKeys.push(storageKey);
 			uploadedPhotoData.push({
-				url: getPublicUrl(key),
-				storageKey: key,
+				url: getPublicUrl(storageKey),
+				storageKey,
 			});
 		}
 		// STEP 3: Save all photo records in PostgreSQL.
