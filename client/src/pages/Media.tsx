@@ -1,21 +1,44 @@
 import { dummyPhotos } from '../data/dummy';
 import { Photo } from '../types/Photo';
 import { Video } from '../types/Video'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { dummyVideos } from '../data/dummy';
 
 const Media = () => {
-	const [photos, setPhotos] = useState<Photo[]>(dummyPhotos);
-	const [videos, setVideos] = useState<Video[]>(dummyVideos)
+	const [photos, setPhotos] = useState<Photo[]>([]);
+	const [videos, setVideos] = useState<Video[]>([])
 	const [selectedVideoId, setSelectedVideoId] = useState<string>("");
 
-	//fetch photos
-	//fetch videos
+	useEffect(() => {
+		const fetchMedia = async () => {
+			try {
+				const [photoResponse, videoResponse] = await Promise.all([
+					fetch("/api/photos"),
+					fetch("/api/videos"),
+				]);
+
+				if (!photoResponse.ok || !videoResponse.ok) {
+					throw new Error("Failed to fetch media");
+				}
+
+				const photoData: Photo[] = await photoResponse.json();
+				const videoData: Video[] = await videoResponse.json();
+
+				setPhotos(photoData);
+				setVideos(videoData);
+				setSelectedVideoId(videoData[0]?.id ?? "");
+
+			} catch (error) {
+				console.error("Failed to load media:", error);
+			}
+		};
+
+		fetchMedia();
+	}, []);
 
 	const photoImgs = photos.map(photo => (
 		<div key={photo.id} className='photoImg'>
 			<img src={photo.url} alt={photo.caption || '교회 사진'}></img>
-			<p>{photo.caption}</p>
 		</div>
 	))
 
