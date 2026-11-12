@@ -15,7 +15,7 @@ html {
 }
 body {
 	width: 100%;
-	min-width: 65rem;
+	min-width: 70rem;
 	margin: 0 auto;
 	background-color: white;
 }
@@ -308,7 +308,7 @@ p {
 	margin: 0 auto;
 	border: 0.08rem solid #DEDCD5;
 	border-radius: 0.8rem;
-	padding: 1.5rem;
+	padding: 2.5rem;
 	display: flex;
 	flex-direction: column;
 	gap: 1rem;
@@ -321,10 +321,13 @@ p {
 }
 .messageBody p:first-of-type {
 	font-weight: 300;
-	color: gray;
+	color: green;
 }
 .messageBody p {
 	font-size: 1.2rem;
+}
+.messageBodyText {
+	white-space: pre-wrap;
 }
 .sermons .child1 {
 	margin: 3rem auto 6rem auto;

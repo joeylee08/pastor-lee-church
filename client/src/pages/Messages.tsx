@@ -24,7 +24,7 @@ const Messages = () => {
 		<div key={messageData.id} className='messageBody'>
 			<h3>{messageData.title}</h3>
 			<p>{messageData.date}</p>
-			<p>{messageData.message}</p>
+			<p className='messageBodyText'>{messageData.message}</p>
 		</div>
 	))
 
