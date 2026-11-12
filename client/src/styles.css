@@ -334,7 +334,7 @@ p {
 	background-color: #FAF9F6;
 }
 .messageBody h3 {
-	font-size: 1.5rem;
+	font-size: 1.7rem;
 	color: var(--oak);
 	font-weight: 450;
 }
@@ -392,11 +392,16 @@ p {
 	margin-bottom: 0.5rem;
 	color: var(--oak)
 }
+.contact a:last-of-type {
+	background-color: var(--forest-green);
+	color: white;
+}
 .contact a {
 	text-decoration: none;
 }
-.contact a:hover {
-	color: white;
+.contact a:last-of-type:hover {
+	background-color: white;
+	color: var(--forest-green)
 }
 .googleMap {
 	height: 100%;
