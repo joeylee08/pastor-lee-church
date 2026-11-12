@@ -260,7 +260,7 @@ p {
   border-radius: 1rem;
 }
 .videoThumb {
-	border: 0.03rem solid gray;
+	border: 0.08rem solid #DEDCD5;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -291,7 +291,7 @@ p {
 .messages .messageBody {
 	width: 70%;
 	margin: 0 auto;
-	border: 0.1rem solid #DEDCD5;
+	border: 0.08rem solid #DEDCD5;
 	border-radius: 0.8rem;
 	padding: 1.5rem;
 	display: flex;
@@ -329,7 +329,7 @@ p {
 	display: grid;
 	grid-template-columns: 3fr 5fr;
 	border-radius: 1rem;
-	padding: 2.2rem;
+	padding: 2.5rem;
 	gap: 1rem;
 	background-color: #F7F6F2;
 	margin-top: 3rem;
@@ -354,10 +354,16 @@ p {
 	text-decoration: none;
 }
 .googleMap {
-	height: 20rem;
+	height: 100%;
 	width: 100%;
 	object-fit: cover;
-	border: 0.05rem solid #bbbbbb;
+	border: none;
+	border: 0.08rem solid #DEDCD5;
+}
+.googleMap iframe {
+	width: 100%;
+	height: 100%;
+	border: none;
 }
 .contact .child1b {
 	display: flex;
@@ -405,7 +411,7 @@ p {
 }
 .messageTile {
 	position: relative;
-	border: 0.03rem solid var(--forest-green);
+	border: 0.08rem solid #DEDCD5;
 	border-radius: 0.5rem;
 	display: flex;
 	flex-direction: row;
@@ -430,7 +436,7 @@ p {
 	flex-direction: column;
 	width: 100%;
 	height: 35rem;
-	border: 0.03rem solid var(--forest-green);
+	border: 0.08rem solid #DEDCD5;
 	padding: 2rem;
 	margin-top: 1rem;
 	background-color: #F7F6F2;
@@ -445,7 +451,7 @@ p {
 	font-size: 1.2rem;
 	border-radius: 0.5rem;
 	padding: 0.3rem;
-	border: 0.03rem solid var(--forest-green);
+	border: 0.08rem solid #DEDCD5;
 	font-weight: 300;
 	margin-bottom: 1rem;
 }
@@ -456,7 +462,7 @@ p {
 	border-radius: 0.5rem;
 	margin-bottom: 1.5rem;
 	height: 22rem;
-	border: 0.03rem solid var(--forest-green);
+	border: 0.08rem solid #DEDCD5;
 }
 .formBtnBox {
 	display: flex;
@@ -475,7 +481,7 @@ p {
 	justify-content: center;
 	gap: 1.2rem;
 	border-radius: 1rem;
-	border: 0.03rem solid var(--forest-green);
+	border: 0.08rem solid #DEDCD5;
 	background-color: #F7F6F2;
 }
 .photoForm label {
@@ -484,7 +490,7 @@ p {
 	padding: 0.4rem 0.8rem 0.4rem 0.8rem;
 	width: 18rem;
 	height: 2.3rem;
-	border: 0.03rem solid var(--forest-green);
+	border: 0.08rem solid #DEDCD5;
 	font-weight: 400;
 	white-space: nowrap;
 	overflow: hidden;
@@ -527,7 +533,6 @@ p {
 	gap: 1rem;
 }
 .photoThumb {
-	border: 0.03rem solid var(--forest-green);
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -587,7 +592,7 @@ p {
 }
 .sermonThumb {
   position: relative;
-  border: 0.03rem solid var(--forest-green);
+  border: 0.08rem solid #DEDCD5;
   border-radius: 0.7rem;
 }
 .sermonThumb .redX {
