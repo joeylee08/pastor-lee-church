@@ -33,7 +33,6 @@ const Sermons = () => {
 		<div className='mainPage sermons'>
 			<div className='child child1'>
 				<h3 className='sectionHeading'>지난 설교 파워포인트</h3>
-				<Placeholder/>
 				{sermons.length === 0 ? <Placeholder /> : null}
 				<div className='sermonGallery'>{sermonThumbs}</div>
 			</div>
