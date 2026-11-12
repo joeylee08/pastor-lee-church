@@ -1,4 +1,5 @@
 import { Message } from "../types/Message";
+import Placeholder from "../components/Placeholder";
 import { useState, useEffect } from 'react'
 
 const Messages = () => {
@@ -31,6 +32,7 @@ const Messages = () => {
 		<div className='mainPage messages'>
 			<div className='child child1'>
 				<h3 className='sectionHeading'>목회자의 글</h3>
+				{messages.length === 0 ? <Placeholder /> : null}
 				<div className='renderedMessages'>{messageBodies}</div>
 			</div>
 		</div>

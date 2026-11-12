@@ -44,9 +44,8 @@ const Login = ({ onLogin }: LoginProps ) => {
 
   return (
     <div className="mainPage login">
-      <h2>관리자 로그인</h2>
-
       <form onSubmit={handleLogin}>
+				<h2>관리자 로그인</h2>
         <label htmlFor="username">아이디</label>
         <input
           id="username"

@@ -124,10 +124,34 @@ router.post("/", requireAdmin, upload.single("file"), async (req, res) => {
   }
 });
 
-
 // DELETE a sermon
 router.delete("/:id", requireAdmin, async (req, res) => {
-	// Prisma query here
+  try {
+    const id = +req.params.id
+    if (!Number.isInteger(id) || id <= 0) {
+      res.status(400).json({ error: "Invalid sermon ID" });
+      return;
+    }
+    // Find the sermon in PostgreSQL
+    const sermon = await prisma.sermon.findUnique({ where: { id } });
+    if (!sermon) {
+      res.status(404).json({ error: "Sermon not found" });
+      return;
+    }
+    // Delete the PowerPoint from Neon Object Storage
+    await storage.send(
+      new DeleteObjectCommand({
+        Bucket: bucket,
+        Key: sermon.storageKey,
+      })
+    );
+    // Delete its database record
+    await prisma.sermon.delete({ where: { id }});
+    res.sendStatus(204);
+  } catch (error) {
+    console.error("Sermon deletion failed:", error);
+    res.status(500).json({ error: "Failed to delete sermon" });
+  }
 });
 
 export default router;

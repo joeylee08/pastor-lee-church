@@ -1,8 +1,7 @@
-import { dummyPhotos } from '../data/dummy';
 import { Photo } from '../types/Photo';
 import { Video } from '../types/Video'
 import { useState, useEffect } from 'react'
-import { dummyVideos } from '../data/dummy';
+import Placeholder from '../components/Placeholder';
 
 const Media = () => {
 	const [photos, setPhotos] = useState<Photo[]>([]);
@@ -53,6 +52,7 @@ const Media = () => {
 		<div className='mainPage media'>
 			<div className='child child1'>
 				<h3 className='sectionHeading'>교회 사진 갤러리</h3>
+				{photos.length === 0 ? <Placeholder /> : null}
 				<div className='photoGallery'>
 					{photoImgs}
 				</div>

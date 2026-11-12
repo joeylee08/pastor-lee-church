@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Sermon } from '../types/Sermon';
+import Placeholder from '../components/Placeholder';
 
 const Sermons = () => {
 	const [sermons, setSermons] = useState<Sermon[]>([]);
@@ -32,6 +33,7 @@ const Sermons = () => {
 		<div className='mainPage sermons'>
 			<div className='child child1'>
 				<h3 className='sectionHeading'>지난 설교 파워포인트</h3>
+				{sermons.length === 0 ? <Placeholder /> : null}
 				<div className='sermonGallery'>{sermonThumbs}</div>
 			</div>
 		</div>
