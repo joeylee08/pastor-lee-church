@@ -26,8 +26,8 @@ const Sermons = () => {
 
 	const sermonThumbs = sermons.map(sermon => (
 		<div key={sermon.id} className='sermonThumb'>
-			<a className='sermonLink' href={sermon.url} target="_blank" rel="noopener noreferrer" data-tooltip='설교 자료 다운로드'>
-				<div className="pptIcon">PPT</div>
+			<a className='sermonLink' href={sermon.url} target="_blank" rel="noopener noreferrer">
+				<div className="pptIcon" data-tooltip='설교 자료 다운로드'>PPT</div>
 				<p>{sermon.title}</p>
 			</a>
 		</div>
