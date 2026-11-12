@@ -1,6 +1,10 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 const Contact = () => {
+
+	useEffect(() => {
+			document.title = "반석 장로 교회 | 오시는 길";
+		}, []);
 	
 	return (
 		<div className='mainPage contact'>

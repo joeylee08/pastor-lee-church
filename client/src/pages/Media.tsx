@@ -4,6 +4,10 @@ import { useState, useEffect } from 'react'
 import Placeholder from '../components/Placeholder';
 
 const Media = () => {
+	useEffect(() => {
+    document.title = "반석 장로 교회 | 사진과 영상";
+  }, []);
+
 	const [photos, setPhotos] = useState<Photo[]>([]);
 	const [videos, setVideos] = useState<Video[]>([])
 	const [selectedVideoId, setSelectedVideoId] = useState<string>("");

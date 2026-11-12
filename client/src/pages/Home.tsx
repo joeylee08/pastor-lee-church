@@ -1,7 +1,12 @@
 import {BookOpen, Heart, House } from 'lucide-react'
 import { NavLink } from 'react-router-dom';
+import { useEffect } from 'react';
 
 const Home = () => {
+	useEffect(() => {
+    document.title = "반석 장로 교회 | 환영합니다";
+  }, []);
+
 	return (
 		<div className='mainPage home'>
 			<div className='child child1'>

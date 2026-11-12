@@ -4,6 +4,10 @@ import { useState, useEffect } from 'react'
 
 const Messages = () => {
 	const [messages, setMessages] = useState<Message[]>([]);
+
+	useEffect(() => {
+    document.title = "반석 장로 교회 | 목회자의 글";
+  }, []);
 	
 	useEffect(() => {
 		const fetchMessages = async () => {

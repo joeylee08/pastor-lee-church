@@ -6,6 +6,10 @@ const Sermons = () => {
 	const [sermons, setSermons] = useState<Sermon[]>([]);
 
 	useEffect(() => {
+    document.title = "반석 장로 교회 | 설교 자료";
+  }, []);
+
+	useEffect(() => {
     const fetchSermons = async () => {
 			try {
 				const response = await fetch("/api/sermons");
