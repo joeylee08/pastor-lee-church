@@ -88,11 +88,11 @@ p {
 	color: white;
 }
 .pageBtn.logout {
-	width: 9.2rem;
-	height: 2.4rem;
+	width: 9.4rem;
+	height: 2.6rem;
 	font-size: 1.3rem;
 	margin: 0;
-	border-radius: 1rem;
+	border-radius: 0.8rem;
 }
 .pageBtn.logout:hover {
 	background-color: white;
@@ -287,6 +287,23 @@ p {
 .videoThumb:hover {
 	cursor: pointer;
 }
+.videoThumb {
+  position: relative;
+}
+.videoThumb::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 0.2rem solid transparent;
+  border-radius: inherit;
+  box-sizing: border-box;
+  pointer-events: none;
+  z-index: 2;
+  transition: border-color 0.3s ease;
+}
+.videoThumb:hover::after {
+  border-color: green;
+}
 .videoThumb img {
 	display: block;
 	aspect-ratio: 16 / 9;
@@ -448,6 +465,7 @@ p {
 	padding: 0.8rem 0.8rem 0.8rem 1rem;
 	gap: 1rem;
 	background-color: #F7F6F2;
+	transition: box-shadow 0.3s ease;
 }
 .messageTile h3 {
 	font-size: 1.2rem;
@@ -663,7 +681,7 @@ p {
   content: attr(data-tooltip);
   position: absolute;
   top: 5.5%;
-  left: 27%;
+  left: 29%;
   transform: translateX(-50%);
 
   background: #344D40;
@@ -675,7 +693,7 @@ p {
 
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.15s ease;
+  transition: opacity 0.3s ease;
 }
 
 .sermonLink:hover::after,
