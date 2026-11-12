@@ -1,11 +1,12 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, type Dispatch, type SetStateAction } from 'react'
 import { Message } from '../types/Message'
 import { MessageForm } from '../types/MessageForm';
 import { Photo } from '../types/Photo'
 import { Sermon } from '../types/Sermon'
 import { dummyPhotos, dummyMessages } from '../data/dummy';
 
-const Admin = () => {
+
+const Admin = ()  => {
 	const [messages, setMessages] = useState<Message[]>([]);
 	const [photos, setPhotos] = useState<Photo[]>([]);
 	const [sermons, setSermons] = useState<Sermon[]>([]);
@@ -157,7 +158,7 @@ const Admin = () => {
     } catch (error) {
         console.error("Upload failed:", error);
     }
-};
+	};	
 
 	const handleDelete = async (e: React.MouseEvent<HTMLButtonElement>, fileType: "photo" | "message" | "sermon", id: number) => {
 		e.stopPropagation()

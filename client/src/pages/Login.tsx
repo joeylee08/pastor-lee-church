@@ -2,7 +2,12 @@
 import { useState, type FormEvent } from "react";
 import { useNavigate } from "react-router-dom";
 
-const Login = () => {
+
+type LoginProps = {
+  onLogin: () => void;
+};
+
+const Login = ({ onLogin }: LoginProps ) => {
   const navigate = useNavigate();
 
   const [username, setUsername] = useState("");
@@ -26,9 +31,9 @@ const Login = () => {
       });
 
       if (!response.ok) {
-        throw new Error("Invalid username or password");
+        throw new Error("Login Failed");
       }
-
+			onLogin();
       navigate("/admin", { replace: true });
     } catch (error) {
       setError("아이디 또는 비밀번호가 올바르지 않습니다.");

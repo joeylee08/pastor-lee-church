@@ -1,7 +1,11 @@
 import { NavLink, useLocation } from "react-router-dom";
 import { CloudSun } from "lucide-react"
 
-const NavBar = () => {
+type NavBarProps = {
+  onLogout: () => void;
+};
+
+const NavBar = ({ onLogout }: NavBarProps) => {
 	const location = useLocation();
   const isAdmin = location.pathname.startsWith("/admin");
 	
@@ -15,7 +19,7 @@ const NavBar = () => {
 				<div className='linksList'>
 					{isAdmin ? (
 						<>
-							<button type="button" className='pageBtn logout'>로그아웃</button>
+							<button type="button" className='pageBtn logout' onClick={onLogout}>로그아웃</button>
 						</>
 					) : (
 						<>
