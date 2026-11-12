@@ -19,15 +19,15 @@ const Home = () => {
 				<h2 className='sectionHeading'>우리 교회의 핵심 가치</h2>
 				<div className='valuesBox'>
 					<div className='valuesCard'>
-						<BookOpen className='homeIcon' size={42}/>
+						<BookOpen className='homeIcon' size={40}/>
 						<h4>믿음</h4>
 					</div>
 					<div className='valuesCard'>
-						<Heart className='homeIcon' size={42}/>
+						<Heart className='homeIcon' size={40}/>
 						<h4>사랑</h4>
 					</div>
 					<div className='valuesCard'>
-						<House className='homeIcon' size={42}/>
+						<House className='homeIcon' size={40}/>
 						<h4>교제</h4>
 					</div>
 				</div>

@@ -10,17 +10,28 @@
 	box-sizing: border-box; 
 	font-family: "Inter", sans-serif;
 }
+html {
+	font-size: 90%;
+}
 body {
 	width: 100%;
 	margin: 0 auto;
 	background-color: white;
+}
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.app main {
+  flex: 1;
 }
 p, h1, h2, h3, h4 {
 	margin: 0;
 	color: var(--forest-green);
 }
 p {
-	font-size: 1.4rem;
+	font-size: 1.5rem;
 }
 .navWrapper {
 	width: 100%;
@@ -32,7 +43,7 @@ p {
   display: flex;
   justify-content: space-between;
   align-items: center;
-	padding: 1.8rem 0.4rem;
+	padding: 2rem 0.4rem;
 	background-color: var(--forest-green);
 }
 .nav h1 {
@@ -46,13 +57,13 @@ p {
 	gap: 2rem;
 }
 .linksList a {
-	font-size: 1.4rem;
+	font-size: 1.5rem;
 	font-weight: 450;
 	text-decoration: none;
 	color: white;
 }
 .footer {
-	height: 5.5rem;
+	height: 7rem;
 	background-color: var(--forest-green);
 }
 .pageBtn {
@@ -97,7 +108,8 @@ p {
 	width: 100%;
 	margin: 0 auto;
 	padding: 0;
-	font-size: 2rem;
+	color: var(--forest-green);
+	font-size: 2.4rem;
 	font-weight: 450;
 	padding: 0 0.25rem;
 }
@@ -116,7 +128,7 @@ p {
 	font-weight: 550;
 }
 .home .child1 h3 {
-	font-size: 2rem;
+	font-size: 2.4rem;
 	font-weight: 450;
 	margin-left: -0.13rem;
 }
@@ -145,7 +157,7 @@ p {
 }
 .homeImg {
 	width: 100%;
-	border-radius: 1rem;
+	border-radius: 0.5rem;
 }
 .valuesBox {
 	display: grid;
@@ -164,7 +176,7 @@ p {
 	gap: 0.5rem;
 }
 .valuesCard h4 {
-	font-size: 1.4rem;
+	font-size: 1.7rem;
 	font-weight: 500;
 }
 .homeIcon {
@@ -182,18 +194,17 @@ p {
 	gap: 1rem;
 }
 .photoImg {
-	border: 0.03rem solid var(--forest-green);
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	border-radius: 0.7rem;
+	border-radius: 0.5rem;
 	position: relative;
 }
 .photoImg img {
 	aspect-ratio: 4 / 3;
 	width: 100%;
 	object-fit: cover;
-	border-radius: 0.7rem;
+	border-radius: 0.5rem;
 	height: auto;
 }
 .photoImg p {
@@ -249,11 +260,11 @@ p {
   border-radius: 1rem;
 }
 .videoThumb {
-	border: 0.03rem solid var(--forest-green);
+	border: 0.03rem solid gray;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	border-radius: 0.7rem;
+	border-radius: 0.5rem;
 	position: relative;
 }
 .videoThumb:hover {
@@ -264,8 +275,45 @@ p {
 	aspect-ratio: 16 / 9;
 	object-fit: cover;
 	width: 100%;
-	border-radius: 0.7rem 0.7rem 0 0;
+	border-radius: 0.5rem 0.5rem 0 0;
 	height: auto;
+}
+.messages .child1 {
+	width: 95%;
+	margin: 3rem auto;
+}
+.messages .renderedMessages {
+	margin-top: 1rem;
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+}
+.messages .messageBody {
+	width: 70%;
+	margin: 0 auto;
+	border: 0.1rem solid #DEDCD5;
+	border-radius: 0.8rem;
+	padding: 1.5rem;
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	background-color: #FAF9F6;
+}
+.messageBody h3 {
+	font-size: 1.5rem;
+	color: var(--oak);
+	font-weight: 500;
+}
+.messageBody p {
+	font-size: 1.2rem;
+}
+.sermons .child1 {
+	margin: 3rem auto;
+}
+.sermons .sermonGallery {
+	margin-top: 1rem;
+	gap: 1.2rem;
+	grid-template-columns: repeat(4, 1fr);
 }
 .videoThumb p {
 	font-size: 1rem;
@@ -283,20 +331,27 @@ p {
 	border-radius: 1rem;
 	padding: 2.2rem;
 	gap: 1rem;
-	background-color: var(--ivory);
+	background-color: #F7F6F2;
 	margin-top: 3rem;
 	margin-bottom: 2.5rem;
 }
+.contact .child1a a,
 .contact .child1a p {
-	font-size: 1.2rem;
+	font-size: 1.3em;
 	color: var(--oak);
-	line-height: 1.7rem;
+	line-height: 2rem;
 	font-weight: 450;
+}
+.contact .child1a a:first-of-type {
+	color: #2d5a7a;
 }
 .contact .child1a h4 {
 	font-size: 1.8rem;
-	font-weight: 400;
+	font-weight: 500;
 	margin-bottom: 0.3rem;
+}
+.contact a {
+	text-decoration: none;
 }
 .googleMap {
 	height: 20rem;
@@ -358,7 +413,7 @@ p {
 	justify-content: flex-start;
 	padding: 0.8rem 0.8rem 0.8rem 1rem;
 	gap: 1rem;
-	background-color: var(--ivory);
+	background-color: #F7F6F2;
 }
 .messageTile h3 {
 	font-size: 1.2rem;
@@ -371,14 +426,14 @@ p {
 }
 .createMessageForm {
 	display: flex;
-	border-radius: 1rem;
+	border-radius: 0.5rem;
 	flex-direction: column;
 	width: 100%;
 	height: 35rem;
 	border: 0.03rem solid var(--forest-green);
 	padding: 2rem;
 	margin-top: 1rem;
-	background-color: var(--ivory);
+	background-color: #F7F6F2;
 }
 .createMessageForm label {
 	font-size: 1.2rem;
@@ -421,6 +476,7 @@ p {
 	gap: 1.2rem;
 	border-radius: 1rem;
 	border: 0.03rem solid var(--forest-green);
+	background-color: #F7F6F2;
 }
 .photoForm label {
 	font-size: 1.2rem;
@@ -433,6 +489,7 @@ p {
 	white-space: nowrap;
 	overflow: hidden;
   text-overflow: ellipsis;
+	background-color: white;
 }
 .photoForm label:hover{
 	cursor: pointer;
@@ -474,7 +531,7 @@ p {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	border-radius: 0.7rem;
+	border-radius: 0.5rem;
 	position: relative;
 }
 .redX {
@@ -509,7 +566,7 @@ p {
 	width: 100%;
 	aspect-ratio: 4 / 3;
   overflow: hidden;
-	border-radius: 0.7rem;
+	border-radius: 0.5rem;
 	height: auto;
 }
 .photoThumb p {
@@ -530,7 +587,7 @@ p {
 }
 .sermonThumb {
   position: relative;
-  border: 0.08px solid var(--forest-green);
+  border: 0.03rem solid var(--forest-green);
   border-radius: 0.7rem;
 }
 .sermonThumb .redX {

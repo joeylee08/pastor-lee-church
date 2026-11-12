@@ -11,19 +11,21 @@ import Login from "./pages/Login";
 
 const App = () => {
 	return (
-		<>
+		<div className='app'>
 			<NavBar />
-			<Routes>
-				<Route path="/" element={<Home />} />
-				<Route path="/media" element={<Media />} />
-				<Route path="/messages" element={<Messages />} />
-				<Route path="sermons" element={<Sermons />} />
-				<Route path="/contact" element={<Contact />} />
-				<Route path='/admin'element={<Admin />} />
-				<Route path="/login" element={<Login />} />
-			</Routes>
+			<main>
+				<Routes>
+					<Route path="/" element={<Home />} />
+					<Route path="/media" element={<Media />} />
+					<Route path="/messages" element={<Messages />} />
+					<Route path="sermons" element={<Sermons />} />
+					<Route path="/contact" element={<Contact />} />
+					<Route path='/admin'element={<Admin />} />
+					<Route path="/login" element={<Login />} />
+				</Routes>
+			</main>
 			<Footer />
-		</>
+		</div>
 	);
 }
 
