@@ -779,6 +779,7 @@ p {
 		min-width: 0;
 	}
 	.sectionHeading {
+		margin-top: -1rem;
 		text-align: center;
 	}
 	.home .child1 h3 {
@@ -795,6 +796,7 @@ p {
 		grid-template-columns: 1fr;
 	}
 	.valuesBox {
+		margin-top: 0.3rem;
 		width: 100%;
 	}
 	.media .photoGallery {
@@ -830,5 +832,56 @@ p {
 	.videoThumb p {
 		line-height: 1rem;
 		font-size: 0.9rem;
+	}
+	.sermons .sermonGallery {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+	}
+	.mainPage {
+		margin-top: 0;
+	}
+	.footer {
+		margin-top: -2rem;
+	}
+	.mainPage.login {
+		width: 100%;
+		margin: 2rem auto 5rem auto;
+		padding: 0;
+	}
+	.login form {
+		width: 90%;
+		margin: 0 auto;
+	}
+	.formAndHistory {
+		display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    gap: 1rem;
+	}
+	.messageTile {
+		margin: 0;
+		width: 100%;
+	}
+	.messageTileBox {
+		width: 100%;
+    height: 20rem;
+    overflow-y: auto;
+    padding: 0 0.6rem 0 0;
+	}
+	.createMessageForm input {
+		padding: 0.5rem;
+		height: 2.3rem;
+	}
+	.createMessageForm textarea {
+		padding: 0.5rem;
+	}
+	.formAndHistory .formBtnBox {
+		justify-content: center;
+	}
+	.admin .photoGallery {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+	.admin .sermonGallery {
+		grid-template-columns: repeat(2, 1fr);
 	}
 }
