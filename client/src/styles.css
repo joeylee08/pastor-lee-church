@@ -758,3 +758,77 @@ p {
 	width: 9rem;
 	height: 2.8rem;
 }
+
+/* MOBILE RESPONSIVENESS */
+
+@media (max-width: 500px) {
+	.linksList.desktop {
+		display: none;
+	}
+	.navWrapper {
+		width: 100%;
+		align-items: center;
+		justify-content: center;
+	}
+	.nav {
+		padding: 1.5rem 0;
+		align-items: center;
+		justify-content: center;
+	}
+	body {
+		min-width: 0;
+	}
+	.sectionHeading {
+		text-align: center;
+	}
+	.home .child1 h3 {
+		font-size: 2.2rem;
+		font-weight: 600;
+	}
+	p {
+		font-size: 1.4rem;
+	}
+	a.pageBtn {
+		font-size: 1.4rem;
+	}
+	.home .child2 {
+		grid-template-columns: 1fr;
+	}
+	.valuesBox {
+		width: 100%;
+	}
+	.media .photoGallery {
+		grid-template-columns: 1fr;
+	}
+	.media .child2 {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto auto;
+		gap: 0.5rem;
+  }
+  .videoGrid {
+    width: 100%;
+    min-width: 0;
+  }
+	.videoScroll {
+		position: static;
+    inset: auto;
+    flex-direction: row;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 0 0 0.5rem 0;
+		gap: 0.6rem;
+	}
+	.videoScroll::-webkit-scrollbar {
+    height: 0.6rem;
+  }
+	.videoThumb {
+    flex: 0 0 10rem;
+    width: 9rem;
+    min-width: 0;
+    height: auto;
+  }
+	.videoThumb p {
+		line-height: 1rem;
+		font-size: 0.9rem;
+	}
+}

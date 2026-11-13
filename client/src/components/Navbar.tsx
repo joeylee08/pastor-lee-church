@@ -16,7 +16,7 @@ const NavBar = ({ onLogout }: NavBarProps) => {
 					<h1 className='title'>반석 장로 교회</h1>
 					<CloudSun size={60} className='titleLogo' />
 				</NavLink>
-				<div className='linksList'>
+				<div className='linksList desktop'>
 					{isAdmin ? (
 						<>
 							<button type="button" className='pageBtn logout' onClick={onLogout}>로그아웃</button>
