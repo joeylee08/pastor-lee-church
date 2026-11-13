@@ -948,4 +948,7 @@ p {
 	.photoForm {
 		padding: 1.2rem;
 	}
+	.admin .createMessageForm input {
+		background-color: white;
+	}
 }
