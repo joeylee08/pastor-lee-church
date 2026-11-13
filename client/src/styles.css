@@ -932,7 +932,8 @@ p {
 	.desktopContactBtn {
 		display: none;
 	}
-	.mobileContactBtn {
+	.contact .mobileContactBtn {
+		display: flex;
 		justify-self: center;
 	}
 	.placeholder {
