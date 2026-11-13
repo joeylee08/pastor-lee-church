@@ -760,7 +760,10 @@ p {
 }
 .linksList.mobile {
 		display: none;
-	}
+}
+.contact .mobileContactBtn {
+	display: none;
+}
 
 /* MOBILE RESPONSIVENESS */
 
