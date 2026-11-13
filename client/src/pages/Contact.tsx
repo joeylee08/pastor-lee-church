@@ -27,7 +27,7 @@ const Contact = () => {
 							href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent("3242 W 8th St., Los Angeles, CA")}`}
 							target="_blank"
 							rel="noopener noreferrer"
-							className="pageBtn"
+							className="pageBtn desktopContactBtn"
 						>
 							길찾기
 						</a>
@@ -41,6 +41,12 @@ const Contact = () => {
 						referrerPolicy="strict-origin-when-cross-origin"
 					/>
 				</div>
+				<a
+					href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent("3242 W 8th St., Los Angeles, CA")}`}
+					target="_blank"
+					rel="noopener noreferrer"
+					className="pageBtn mobileContactBtn"
+				>길찾기</a>
 			</div>
 		</div>
 	);

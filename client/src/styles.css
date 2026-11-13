@@ -758,6 +758,9 @@ p {
 	width: 9rem;
 	height: 2.8rem;
 }
+.linksList.mobile {
+		display: none;
+	}
 
 /* MOBILE RESPONSIVENESS */
 
@@ -765,15 +768,36 @@ p {
 	.linksList.desktop {
 		display: none;
 	}
+	.linksList.mobile {
+		background-color: var(--forest-green);
+		padding: 0.9rem 0 0.6rem 0;
+		display: flex;
+		width: 100%;
+		align-items: center;
+		justify-content: center;
+		gap: 2.7rem;
+		margin: 0;
+	}
+	.linksList.mobile a {
+		color: white;
+	}
 	.navWrapper {
 		width: 100%;
 		align-items: center;
 		justify-content: center;
 	}
 	.nav {
-		padding: 1.5rem 0;
+		display: flex;
+		flex-direction: column;
+		padding: 1.8rem 0 0 0;
 		align-items: center;
 		justify-content: center;
+		margin: 0 auto;
+		width: 100%;
+		background-color: var(--deep-pine);
+	}
+	.titleAndLogo {
+		margin-bottom: 1.2rem;
 	}
 	body {
 		min-width: 0;
@@ -883,5 +907,31 @@ p {
 	}
 	.admin .sermonGallery {
 		grid-template-columns: repeat(2, 1fr);
+	}
+	.contact .child1 {
+		display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    gap: 1rem;
+		padding: 2rem;
+	}
+	.googleMap {
+		height: 15rem;
+		width: 100%;
+	}
+	.desktopContactBtn {
+		display: none;
+	}
+	.mobileContactBtn {
+		justify-self: center;
+	}
+	.placeholder {
+		font-size: 1rem;
+		padding: 1.2rem;
+	}
+	.linksList.mobile .logout {
+		background-color: var(--forest-green);
+		color: white;
+		border: none;
 	}
 }

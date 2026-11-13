@@ -1,5 +1,5 @@
 import { NavLink, useLocation } from "react-router-dom";
-import { CloudSun } from "lucide-react"
+import { CloudSun, House, Camera, NotebookPen, RotateCcwClock, Phone, LogOut} from "lucide-react"
 
 type NavBarProps = {
   onLogout: () => void;
@@ -28,6 +28,21 @@ const NavBar = ({ onLogout }: NavBarProps) => {
 							<NavLink to="/messages">목회자의 글</NavLink>
 							<NavLink to="/sermons">지난 설교</NavLink>
 							<NavLink to="/contact">교회 안내</NavLink>
+						</>
+					)}
+				</div>
+				<div className='linksList mobile'>
+					{isAdmin ? (
+						<>
+							<button type="button" className='logout' onClick={onLogout}><LogOut size={30}/></button>
+						</>
+					) : (
+						<>
+							<NavLink to="/"><House size={30}/></NavLink>
+							<NavLink to="/media"><Camera size={30}/></NavLink>
+							<NavLink to="/messages"><NotebookPen size={30}/></NavLink>
+							<NavLink to="/sermons"><RotateCcwClock size={30}/></NavLink>
+							<NavLink to="/contact"><Phone size={30}/></NavLink>
 						</>
 					)}
 				</div>
