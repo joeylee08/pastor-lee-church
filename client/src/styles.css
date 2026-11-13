@@ -928,6 +928,7 @@ p {
 	.placeholder {
 		font-size: 1rem;
 		padding: 1.2rem;
+		margin: 1.5rem auto;
 	}
 	.linksList.mobile .logout {
 		background-color: var(--forest-green);
