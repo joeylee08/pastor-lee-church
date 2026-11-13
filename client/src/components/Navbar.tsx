@@ -14,7 +14,7 @@ const NavBar = ({ onLogout }: NavBarProps) => {
 			<div className='nav'>
 				<NavLink to="/" className='titleAndLogo'>
 					<h1 className='title'>반석 장로 교회</h1>
-					<CloudSun size={60} className='titleLogo' />
+					<CloudSun size={60} className='titleLogo icon' />
 				</NavLink>
 				<div className='linksList desktop'>
 					{isAdmin ? (

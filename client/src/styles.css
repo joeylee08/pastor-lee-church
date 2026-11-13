@@ -799,10 +799,14 @@ p {
 	.titleAndLogo {
 		margin-bottom: 1.2rem;
 	}
+	.titleLogo.icon {
+		display: none;
+	}
 	body {
 		min-width: 0;
 	}
 	.sectionHeading {
+		font-size: 2.2rem;
 		margin-top: -1rem;
 		text-align: center;
 	}
@@ -856,6 +860,9 @@ p {
 	.videoThumb p {
 		line-height: 1rem;
 		font-size: 0.9rem;
+	}
+	.messages .messageBody {
+		padding: 1.5rem;
 	}
 	.sermons .sermonGallery {
 		display: grid;
@@ -934,5 +941,11 @@ p {
 		background-color: var(--forest-green);
 		color: white;
 		border: none;
+	}
+	.admin .createMessageForm {
+		padding: 2rem 1rem 2rem 1rem;
+	}
+	.photoForm {
+		padding: 1.2rem;
 	}
 }

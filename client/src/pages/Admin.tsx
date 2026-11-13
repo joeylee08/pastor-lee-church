@@ -250,7 +250,7 @@ const Admin = ()  => {
 							: "사진을 선택하세요"}
 					</label>
 					<input id='photos' name='photos' type='file' accept="image/jpeg,image/png,image/webp" multiple className='photoFileInput' onChange={(e) => handleChangeFiles(e, "photo")}></input>
-					<button type='submit' className='pageBtn'>사진 업로드</button>
+					<button type='submit' className='pageBtn'>업로드</button>
 				</form>
 				<div className='photoGallery'>
 					{photoThumbs}
@@ -265,7 +265,7 @@ const Admin = ()  => {
 							: "파워포인트를 선택하세요"}
 					</label>
 					<input id='ppt' name='ppt' type='file' accept='.ppt, .pptx' className='photoFileInput' onChange={(e) => handleChangeFiles(e, "sermon")} required></input>
-					<button type='submit' className='pageBtn'>설교 업로드</button>
+					<button type='submit' className='pageBtn'>업로드</button>
 				</form>
 				<div className='sermonGallery'>
 					{sermonThumbs}
